@@ -9,9 +9,11 @@ State of instance
 
 list  instances
     
--      aws ec2 describe-instances
+-       aws ec2 describe-instances
 
--      aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"
+-       aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"
+
+-       aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"
 
 start instances
 
