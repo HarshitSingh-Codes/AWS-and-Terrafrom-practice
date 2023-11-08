@@ -15,6 +15,14 @@ list  instances
 
 -       aws ec2 describe-instances --filters "Name=instance-type,Values=t2.micro" --query "Reservations[].Instances[].InstanceId"
 
+-       aws ec2 describe-instances \
+        --filters Name=tag-key,Values=Name \
+        --query 'Reservations[*].Instances[*].{Instance:InstanceId,Name:Tags[?Key==`Name`]|[0].Value}' \
+        --output table
+    
+    ![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/fcac3f01-6cd5-4583-acac-096fc209c837)
+
+
 start instances
 
     aws ec2 start-instances --instance-ids i-1234567890abcdef0
