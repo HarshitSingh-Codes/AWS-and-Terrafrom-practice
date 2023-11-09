@@ -15,16 +15,43 @@ Create 2 vpc networks with min requirements
 1 database private subnet (service vpc)
 1 middleware private subnet (service vpc)
 
+Management-VPC
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/27e4b10c-c99b-4115-a473-178fc70c2066)
+
+Service-VPC
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/104647d5-4f39-4119-8129-d63accb0ad13)
+
+
 Create in such a way that both vpc networks can communicate with each other. 
+
+#### VPC peering:-
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/7aa81138-8d98-43cc-a077-fb28aa7826bd)
+
+#### Output:
+
+Service ---> Management
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/7bfca72b-a688-483f-995c-27e4d032461a)
+
+Management ---> Service
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/59237c97-3c5b-4a3e-b88a-6ea628da8950)
+
+
 Then setup nginx in service vpc under private subnet and use another nginx as a reverse proxy which can forward traffic from load balancer to nginx web hosting.
 
 """Client has another concern about security of the network, as not all resources should be allowed to
 each resource, so kindly restrict the rest of the traffic in route tables and Nacl".
 
 Day2:
-You need to manage 
-route tables of both the networks in such a way that only your teammates ip addresses should be allowed to igw rest should be deny.
+You need to manage route tables of both the networks in such a way that only your teammates ip addresses should be allowed to igw rest should be deny.
 Also manage Nacl group in such a way that it should allow traffic on specific port ranges to subnetworks.
+    
+    nmcli -p device show
+
 
 """While you are doing work on instance, some how your key 🗝️ is lost somewhere or currupted, client 
 raising this issue as p0 and ask us for recover the key or kindly setup new key so that they can login the server atleast."""
