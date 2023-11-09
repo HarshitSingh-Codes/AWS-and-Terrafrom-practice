@@ -43,6 +43,25 @@ Management ---> Service
 
 Then setup nginx in service vpc under private subnet and use another nginx as a reverse proxy which can forward traffic from load balancer to nginx web hosting.
 
+    server {
+        listen 80;
+        server_name example.com;
+    
+        location / {
+            proxy_pass http://backend-server-1;
+        }
+    
+        location /app2/ {
+            proxy_pass http://backend-server-2;
+        }
+    }
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/51e1bd5e-889d-4142-be3c-d6d326e28321)
+
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/0121d30d-79d0-4671-93a0-a2266d740d23)
+
+
 """Client has another concern about security of the network, as not all resources should be allowed to
 each resource, so kindly restrict the rest of the traffic in route tables and Nacl".
 
