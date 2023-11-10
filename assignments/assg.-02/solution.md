@@ -67,6 +67,32 @@ Then setup nginx in service vpc under private subnet and use another nginx as a 
 
 ![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/0121d30d-79d0-4671-93a0-a2266d740d23)
 
+#### Error
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/89468b1c-9e88-4811-b950-9319f27bc1f4)
+
+#### Middleware nginx config: 
+
+root@ip-10-0-140-62:/etc/nginx/sites-enabled# cat default 
+
+    server {
+    listen 80;
+    server_name localhost;
+    location / {
+        proxy_pass http://10.0.28.86;
+    }
+    }
+
+#### Output:
+
+target grp --> middleware instance
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/57885d25-257e-4f75-90ea-4cefbe2b32e1)
+
+
+
+
+
 
 """Client has another concern about security of the network, as not all resources should be allowed to
 each resource, so kindly restrict the rest of the traffic in route tables and Nacl".
