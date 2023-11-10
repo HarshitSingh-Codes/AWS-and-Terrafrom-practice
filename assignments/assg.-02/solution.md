@@ -87,7 +87,8 @@ root@ip-10-0-140-62:/etc/nginx/sites-enabled# cat default
 
 target grp --> middleware instance
 
-![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/57885d25-257e-4f75-90ea-4cefbe2b32e1)
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/42abb13b-ac9f-40ab-bdbb-1a5e7544b111)
+
 
 
 
