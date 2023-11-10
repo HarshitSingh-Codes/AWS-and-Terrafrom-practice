@@ -8,11 +8,17 @@ For the middleware problem statement we need nginx again but as a reverse proxy.
 Kindly do the following day wise setup:
 
 Day1: 
+
 Create 2 vpc networks with min requirements
+
 1 public subnet (management vpc and service vpc)
+
 1 private subnet (management vpc)
+
 2 private subnet (service vpc)
+
 1 database private subnet (service vpc)
+
 1 middleware private subnet (service vpc)
 
 Management-VPC
