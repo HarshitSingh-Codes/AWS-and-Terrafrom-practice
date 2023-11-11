@@ -96,29 +96,40 @@ target grp --> middleware instance
 
 
 """Client has another concern about security of the network, as not all resources should be allowed to
+
 each resource, so kindly restrict the rest of the traffic in route tables and Nacl".
 
 Day2:
+
 You need to manage route tables of both the networks in such a way that only your teammates ip addresses should be allowed to igw rest should be deny.
+
 Also manage Nacl group in such a way that it should allow traffic on specific port ranges to subnetworks.
     
     nmcli -p device show
 
 
 """While you are doing work on instance, some how your key 🗝️ is lost somewhere or currupted, client 
+
 raising this issue as p0 and ask us for recover the key or kindly setup new key so that they can login the server atleast."""
 
 Day3:
+
 Kindly find the possible ways through which we can login to the server , you can do this 
+
 Either by volume mounting
+
 Either by doing configuration changes through user data.
+
 Or by creating your own server key as temporary key to login there.
 
 Kindly perform all three one by one and analyse the result.
 
 NOTE: 
+
 All traffic should be blocked only specific ports and IP addresses should be allowed.
+
 No secret and access keys, only roles and policy
+
 No root login. 
 
 GOOD TO DO: 
