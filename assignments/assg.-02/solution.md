@@ -114,15 +114,75 @@ raising this issue as p0 and ask us for recover the key or kindly setup new key 
 
 Day3:
 
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#replacing-lost-key-pair 
+
+https://medium.com/the-10x-dev/how-to-recover-access-login-to-your-aws-instance-after-losing-your-pem-keypair-file-e0d31bae2da4
+
+https://repost.aws/knowledge-center/user-data-replace-key-pair-ec2
+
 Kindly find the possible ways through which we can login to the server , you can do this 
 
 Either by volume mounting
+
+
 
 Either by doing configuration changes through user data.
 
 Or by creating your own server key as temporary key to login there.
 
 Kindly perform all three one by one and analyse the result.
+E.B.S volume mounting
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html#replacing-lost-key-pair 
+
+Step 1: Create a new key pair
+
+Step 2: Get information about the original instance and its root volume
+
+    instance id: i-08d8f16b994d71fb0
+    
+    ami id- ami-0690c54203f5f67da
+    
+    root device name- /dev/sda1
+    
+    volume id- vol-0acc8f774106ea955
+    
+    also note the AZ and subnet of the instance
+
+Step 3: Stop the original instance
+
+Step 4: Launch a temporary instance
+
+Step 5: Detach the root volume from the original instance and attach it to the temporary instance
+
+Step 6: Add the new public key to authorized_keys on the original volume mounted to the temporary instance
+
+a. Use the lsblk command to determine if the volume is partitioned.
+
+        lsblk
+
+b. Create a temporary directory to mount the volume.
+
+    sudo mkdir /mnt/tempvol
+c. Mount the volume (or partition) at the temporary mount point, using the volume name or device name that you identified earlier.
+
+    sudo mount /dev/xvdf1 /mnt/tempvol
+
+d. From the temporary instance, use the following command to update authorized_keys on the mounted volume 
+with the new public key from the authorized_keys for the temporary instance.
+
+    cp .ssh/authorized_keys /mnt/tempvol/home/ubuntu/.ssh/authorized_keys
+
+Step 7: Unmount and detach the original volume from the temporary instance, and reattach it to the original instance
+1. 
+
+    sudo umount /mnt/tempvol
+
+2. Detach the volume from the temporary instance 
+
+3. Reattach the volume to the original instance
+
+![image](https://github.com/HarshitSingh-Codes/aws-practice/assets/67234531/6e4285fa-d1f8-4907-88b3-a3652540ae70)
 
 NOTE: 
 
